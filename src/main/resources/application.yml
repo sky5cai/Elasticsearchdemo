@@ -1,0 +1,16 @@
+
+server:
+  port: 8080
+
+#spring:
+#  elasticsearch:
+#    jest:
+#      uris:
+#      - http://127.0.0.1:9200 # ES服务器的地址
+#      read-timeout: 5000
+
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+#      cluster-name: my-application
