@@ -3,6 +3,7 @@ package com.example.elasticsearch.demo.demo.elasticsearch.controller;
 import com.example.elasticsearch.demo.demo.elasticsearch.dao.BlogRepository;
 import com.example.elasticsearch.demo.demo.elasticsearch.model.BlogModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -38,5 +39,12 @@ public class BlogController {
         List<BlogModel> list = new ArrayList<>();
         iterable.forEach(list::add);
         return list;
+    }
+
+    @GetMapping("/title")
+    public List repSearchTitle(@RequestParam String keyword) {
+        if (StringUtils.isEmpty(keyword))
+            return null;
+        return blogRepository.findByTitleLike(keyword);
     }
 }
