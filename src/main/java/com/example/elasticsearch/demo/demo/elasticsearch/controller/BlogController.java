@@ -1,6 +1,6 @@
 package com.example.elasticsearch.demo.demo.elasticsearch.controller;
 
-import com.example.elasticsearch.demo.demo.elasticsearch.dao.BlogRepository;
+import com.example.elasticsearch.demo.demo.elasticsearch.service.BlogRepository;
 import com.example.elasticsearch.demo.demo.elasticsearch.model.BlogModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
