@@ -1,14 +1,13 @@
 package com.example.elasticsearch.demo.demo.elasticsearch.controller;
 
+import com.example.elasticsearch.demo.demo.elasticsearch.model.Friends;
 import com.example.elasticsearch.demo.demo.elasticsearch.service.BlogRepository;
 import com.example.elasticsearch.demo.demo.elasticsearch.model.BlogModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/blog")
@@ -18,6 +17,12 @@ public class BlogController {
 
     @PostMapping("/add")
     public String add(@RequestBody BlogModel blogModel) {
+        Map<String, Friends> maps = new HashMap<String,Friends>();
+        Friends friends = new Friends();
+        friends.setName("自行车在路上");
+        friends.setNo("333");
+        maps.put("11",friends);
+        blogModel.setFriends2(friends);
         blogRepository.save(blogModel);
         return "SAVE IN ELASTICSEARCH OK";
     }
